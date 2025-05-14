@@ -1,0 +1,543 @@
+html {
+    font-family: sans-serif;
+    background-color: rgb(54, 54, 54);
+}
+
+.poker-table {
+    background-repeat: no-repeat;
+    left: 100px;
+    position: absolute;
+    height: 411px;
+    width: 745px;
+}
+
+.seat {
+    height: 150px;
+    position: absolute;
+    width: 150px;
+}
+
+#button {
+    background-image: url('../images/dealerbutton.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 19px;
+    position: absolute;
+    width: 24px;
+}
+
+.name-chips {
+    background-color: gray;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    height: 33px;
+    position: absolute;
+    text-align: center;
+    top: 65px;
+    width: 140px;
+}
+
+.player-name {
+    width: 100%;
+}
+
+.card {
+    background-image: url('../images/cardback.png');
+    background-size: 100%;
+    border-radius: 4px;
+    height: 73px;
+    width: 50px;
+	object-fit: none;
+    left: -2px;
+}
+
+.card:hover {
+    scale: 1.4;
+}
+
+.holecards {
+    float: left;
+    height: 73px;
+    left: 20px;
+    position: absolute;
+    top: 3px;
+    width: 102px;
+}
+
+.holecard1 {
+    left: 0px;
+    position: absolute;
+}
+
+.holecard2 {
+    left: 50px;
+    position: absolute;
+}
+
+.bet {
+    color: white;
+    font-size: 14px;
+    left: 40px;
+    position: absolute;
+    top: 0px;
+    text-shadow: -1px 0     black, 0 1px     black, 1px 0     black, 0 -1px     black;
+    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+}
+
+#seat0 {
+    left: 300px;
+    top:  330px;
+    scale: 125%;
+}
+.seat0-button {
+    left: 545px;
+    top:  410px;
+    scale: 125%;    
+}
+#seat0 .bet {
+    top: -20px;
+    left: 20px
+}
+
+#seat1 {
+    left: 300px;
+    top: 0px;
+}
+.seat1-button {
+    left: 385px;
+    top:  80px;
+}
+#seat1 .bet {
+    top: 100px;
+    left: 20px
+}
+
+.probability {
+    position: absolute;
+    color: white;
+    visibility: hidden;
+}
+#prob1 {
+    top: 85px;
+    left: 460px;
+}
+#prob0 {
+    top: 315px;
+    left: 460px;
+}
+
+#board {
+    left: 250px;
+    position: absolute;
+    top:  168px;
+}
+
+#pot {
+    color: white;
+    font-size: 16px;
+    left: 325px;
+    position: absolute;
+    text-align: center;
+    top: 245px;
+    text-shadow: -1px 0     black, 0 1px     black, 1px 0     black, 0 -1px     black;
+    text-shadow: -1px 0 1px black, 0 1px 1px black, 1px 0 1px black, 0 -1px 1px black;
+}
+
+.boardcard {
+    height: 73px;
+    left: 0px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -10px;
+    width: 50px;
+}
+
+#flop1 {
+    left: -10px;
+}
+
+#flop2 {
+    left: 42px;
+}
+
+#flop3 {
+    left: 94px;
+}
+
+#turn {
+    left: 146px;
+}
+
+#river {
+    left: 198px;
+}
+
+#burn1 {
+    left: 280px;
+    rotate: -18deg;
+}
+#burn2 {
+    left: 290px;
+}
+#burn3 {
+    left: 300px;
+    rotate: 15deg;
+}
+
+#action-options {
+    height: 40px;
+    left: 380px;
+    position: absolute;
+    top: 450px;
+    width: 200px;
+}
+
+.action-button {
+    background-color: silver;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    height: 20px;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    min-width: 50px;
+}
+
+#fold-button {
+    border-color:#FF0000;
+    background-color: rgb(255, 0, 0, 0.2);
+}
+
+#fold-button:hover {
+    box-shadow: 3px 3px 4px rgb(255, 0, 0, 0.8);
+}
+
+#call-button {
+    left: 80px;
+    min-width: 75px;
+    background-color: rgba(0, 255, 0, 0.2);    
+}
+
+#call-button:hover {
+    box-shadow: 3px 3px 4px  rgba(0, 255, 0, 0.8);
+}
+
+#quick-raises {
+    background-color: rgba(0, 255, 0, 0.2);
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 10px;
+    left: 380px;
+    position: absolute;
+    text-align: center;
+    top: 500px;
+    width: 380px;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+#quick-raises b{
+    color: white;
+    font-size: 18px;
+}
+#quick-raises a:link {
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+}
+#quick-raises a:hover {
+    color: white;
+    text-shadow: 3px 3px 4px rgba(0, 255, 0);
+}
+
+.fraction {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.63);
+}
+
+#setup-options {
+    position: absolute;
+    top: 400px;
+    left: 160px;
+    height: 400px;
+    width: 200px;
+}
+
+.setup-button {
+    background-color: silver;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    height: 30px;
+    left: 0px;
+    padding: 10px 5px 0px 5px;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    width: 160px;
+}
+.setup-button:hover {
+    box-shadow: 3px 3px 4px #000000;
+}
+
+#speed-button {
+    cursor: default;
+    top: 50px;
+}
+
+select {
+    background-color: silver;
+    background: silver;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 3em;
+}
+
+#help-button {
+    top: 100px;
+}
+
+#history {
+    border-color: black;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 10px;
+    height: 600px;
+    left: 50px;
+    position: absolute;
+    top: 600px;
+    width: 400px;
+}
+
+#game-score {
+    border: none;
+    color: white;
+    font-size: 24px;
+    height: 80px;
+    left: 600px;
+    position: absolute;
+    text-align: center;
+    top: 415px;
+    width: 200px;    
+}
+
+#game-response {
+    border: none;
+    color: white;
+    font-size: 12px;
+    height: 100px;
+    left: 825px;
+    position: absolute;
+    text-align: center;
+    top: 25px;
+    width: 650px;
+}
+
+.response-normal {
+    background-color: transparent;
+}
+
+.response-warning {
+    background-color: #FF0000;
+}
+
+#peek {
+    cursor: pointer;
+    display: inline-block;
+}
+  
+#peek-button {
+    display: inline-block;
+    background-color: rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+    width: 130px;
+    height: 30px;
+    position: relative;
+    vertical-align: middle;
+    padding: 10px 5px 0px 5px;
+}
+
+#peek-button:before, #peek-button:after {
+    content: "";
+}
+
+#peek-button:before {
+    display: none;
+}
+
+#peek-checkbox:checked + #peek-button {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 3px 3px 4px rgb(0, 255, 255, 0.8);
+}
+
+#peek-button:hover{
+    box-shadow: 3px 3px 4px rgb(0, 255, 255, 0.6);
+}
+  
+#peek-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+#trainer-mode {
+    background-repeat: no-repeat;
+    border: 20px;
+    border-color: aliceblue;
+    color: white;
+    font-size: 20px;
+    height: 300px;
+    left: 900px;
+    position: absolute;
+    text-align: center;
+    top: 120px;
+    width: 500px;
+}
+
+#toggle {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+}
+  
+#trainer-button {
+    display: inline-block;
+    background-color: rgba(0, 255, 255, 0.2);
+    border-radius: 4px;
+    width: 150px;
+    height: 30px;
+    position: relative;
+    vertical-align: middle;
+    padding: 10px 5px 0px 5px;
+}
+
+#trainer-button:before, #trainer-button:after {
+    content: "";
+}
+
+#trainer-button:before {
+    display: none;
+}
+
+#toggle-checkbox:checked + #trainer-button {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 3px 3px 4px rgb(0, 255, 255, 0.8);
+}
+
+#trainer-button:hover{
+    box-shadow: 3px 3px 4px rgb(0, 255, 255, 0.6);
+}
+  
+#toggle-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+#trainer-text {
+    visibility: hidden;
+    font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 150%;
+}
+
+#NeuralNetwork {
+    visibility: hidden;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column; /* change the direction of flex items to column */
+}
+
+#NeuralNetwork div {
+    display: flex;
+    align-items: center; /* align child elements to center */
+    margin-bottom: 5px;
+}
+
+label {
+    width: 33%;
+}
+
+/* Estilo para la barra de progreso */
+.progress-bar {
+    width: 60%; /* Ancho completo */
+    height: 15px; /* Altura */
+    background-color: #ddd; /* Color de fondo */
+    border-radius: 7px; /* Bordes redondos */
+    overflow: hidden; /* Ocultar contenido que sobrepase los límites */
+}
+
+/* Estilo para el contenido que se mostrará dentro de la barra */
+.progress-bar-fill {
+    width: 0%;
+    height: 150%; /* Altura completa */
+    background-color: #7700ff; /* Color de relleno */
+    transition: width 2s ease-in-out; /* Transición suave de 0.5 segundos para cambiar el ancho */
+}
+
+/* Aplicar estilo a los divs específicos */
+#heroFold .progress-bar {
+    float: right; /* Posicionar a la derecha */
+}
+#heroCheck .progress-bar {
+    float: right;
+}
+#heroCall .progress-bar {
+    float: right;
+}
+#heroRaise .progress-bar {
+    float: right;
+}
+#heroAllIn .progress-bar {
+    float: right;
+}
+#betLevelH1 .progress-bar {
+    float: right;
+}
+#betLevelH2 .progress-bar {
+    float: right;
+}
+#betLevelH3 .progress-bar {
+    float: right;
+}
+#betLevelH4 .progress-bar {
+    float: right;
+}
+#betLevelH5 .progress-bar {
+    float: right;
+}
+
+
+
+#modal-box {
+    background-color: rgb(54, 54, 54);
+    display: none;
+    font-size: 12px;
+    height: 100%;
+    left: 0px;
+    overflow: auto; /* Enable scroll */
+    position: fixed;
+    text-align: center;
+    top: 0px;
+    width: 100%;
+    padding-top: 100px;
+    z-index: 1;  /* Stay on top */
+}
+
+#modal-box a:link {
+    color: white;
+    text-decoration: none;
+}
+#modal-box a:hover {
+    color: white;
+    text-shadow: 3px 3px 4px #000000;
+}
+

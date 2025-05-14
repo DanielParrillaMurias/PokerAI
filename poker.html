@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <title>The Poker Game</title>
+   <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+   <link rel="stylesheet" href="static/css/text.css" type="text/css">
+   <link rel="stylesheet" href="static/css/phone.css" type="text/css"
+         media="only screen and (max-width: 1400px)">
+  <!--   -->
+   <link rel="stylesheet" href="static/css/poker.css" type="text/css">
+
+   <link rel="shortcut icon" href="static/images/chip5.png" />
+   <!-- <script charset="UTF-8" src="//unpkg.com/brain.js"></script> -->
+   <script charset="UTF-8" src=static/BrainNN/brain.js></script>
+   <script charset="UTF-8" src=static/41poker/src/tables/handval-tables.js></script>
+   <script charset="UTF-8" src=static/41poker/src/tables/preflop-hs.js></script>
+   <script charset="UTF-8" src=static/41poker/src/util.js></script>
+   <script charset="UTF-8" src=static/41poker/src/card.js></script>
+   <script charset="UTF-8" src=static/41poker/src/hand.js></script>
+   <script charset="UTF-8" src=static/41poker/src/handval.js></script>
+   <script charset="UTF-8" src=static/41poker/src/hcard.js></script>
+   <script charset="UTF-8" src=static/gui_if.js></script>
+   <script charset="UTF-8" src=static/trainer.js></script>
+   <script charset="UTF-8" src=static/poker.js></script>
+   <script charset="UTF-8" src=static/hands.js></script>
+   <script charset="UTF-8" src=static/bot.js></script> 
+   <script charset="UTF-8" src=static/ehs.js></script> 
+   <script charset="UTF-8" src=static/tests.js></script> 
+   <script charset="UTF-8" src=static/BrainNN/utils.js></script>
+ 
+<!--
+   <script charset="UTF-8" src="static/BrainNN/DataSetHeadsUp.js"></script>
+
+   <script charset="UTF-8" src="static/BrainNN/ETLdataPreFlop.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/Data/processedDataPreFlop.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/NNpreflop.js"></script> 
+ 
+   <script charset="UTF-8" src="static/BrainNN/ETLdataFlop.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/Data/processedDataFlop.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/NNflop.js"></script>
+   
+   <script charset="UTF-8" src="static/BrainNN/ETLdataTurn.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/Data/processedDataTurn.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/NNturn.js"></script>
+
+   <script charset="UTF-8" src="static/BrainNN/ETLdataRiver.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/Data/processedDataRiver.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/NNriver.js"></script>
+
+
+   <script charset="UTF-8" src="static/BrainNN/NeuralNetwork.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/NeuralNetworkPostFlop.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/Tests.js"></script>
+   <script charset="UTF-8" src="static/BrainNN/Temp.js"></script>
+-->  
+</head>
+<body onload="init()">
+    <div id="poker_table" class="poker-table" data-uid="">
+        <div id="seat0" class="seat">
+            <div class="holecards">
+                <div class="card holecard1"></div>
+                <div class="card holecard2"></div>
+            </div>
+            <div class="name-chips">
+                <div class="player-name"></div>
+                <div class="chips"></div>
+            </div>
+            <div class="bet"></div>
+        </div>
+        <div id="seat1" class="seat">
+            <div class="holecards">
+                <div class="card holecard1"></div>
+                <div class="card holecard2"></div>
+            </div>
+            <div class="name-chips">
+                <div class="player-name"></div>
+                <div class="chips"></div>
+            </div>
+            <div class="bet"></div>
+        </div>
+        <div id="prob0" class="probability">Prob0</div>
+        <div id="prob1" class="probability">Prob1</div>
+        <div id="board">
+            <div id="flop1" class="card boardcard"></div>
+            <div id="flop2" class="card boardcard"></div>
+            <div id="flop3" class="card boardcard"></div>
+            <div id="turn"  class="card boardcard"></div>
+            <div id="river" class="card boardcard"></div>
+            <div id="burn1" class="card boardcard"></div>
+            <div id="burn2" class="card boardcard"></div>
+            <div id="burn3" class="card boardcard"></div>
+        </div>
+        <div id="pot">
+            <div id="current-pot"></div>
+            <div id="total-pot"></div>
+        </div>
+    </div>
+    <div id="button" class="seat6-button"></div>
+    <div id="history"></div>
+    <div id="action-options">
+        <div id="fold-button" class="action-button"></div>
+        <div id="call-button" class="action-button"></div>
+    </div>
+    <div id="setup-options">
+        <div id="name-button" class="setup-button">Name</div>
+        <div id="speed-button" class="setup-button">Speed
+           <div id="speed-selector">
+              <select id="speed-options">
+                 <option value="0">1</option>
+                 <option value="1">2</option>
+                 <option value="2">3</option>
+                 <option value="3">4</option>
+                 <option value="4">5</option>
+              </select>
+           </div>
+        </div>
+        <div id="help-button" class="setup-button">Help</div>
+    </div>
+    <div id="quick-raises">Quick Raises</div>
+    <div id="game-score" class="response-normal">Game Score</div>
+    <div id="game-response" class="response-normal">Game response</div>
+    <div id="trainer-mode">
+        <label id="toggle">
+            <input id="toggle-checkbox" type="checkbox">
+            <div id="trainer-button">Trainer mode</div>
+        </label>
+        <label id="peek">
+            <input id="peek-checkbox" type="checkbox">
+            <div id="peek-button">Peek cards </div>
+        </label>
+        <div id="trainer-text">Wait until cards are dealt</div>
+        <div id="NeuralNetwork">
+            <div id="heroFold">
+                <label for="heroFoldBar">Fold</label>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+            <div id="heroCheckCall">
+                <label for="heroCheckCallBar">Check / Call</label>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+            <div id="heroRaise">
+                <label for="heroRaiseBar">Raise</label>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>
+            </div>
+            <div id="betLevelH2">
+                <label for="betLevelH2Bar">0.5x pot</label>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>            
+            </div>
+            <div id="betLevelH3">
+                <label for="betLevelH3Bar">1x pot</label>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>            
+            </div>
+            <div id="betLevelH4">
+                <label for="betLevelH4Bar">1.5x pot</label>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>            
+            </div>
+            <div id="betLevelH5">
+                <label for="betLevelH5Bar">2x pot</label>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>            
+            </div>
+            <div id="heroAllIn">
+                <label for="heroAllInBar">All In</label>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill"></div>
+                </div>            
+            </div>
+        </div>
+    </div>     
+    <div id="modal-box"></div>
+</body>
+</html>
